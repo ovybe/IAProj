@@ -19,7 +19,6 @@ import shutil
 
 # VALORI CONSTANTE
 train_dir= "./training/"
-test_dir= "./test"
 FAST_RUN = False
 IMAGE_WIDTH=200
 IMAGE_HEIGHT=200
@@ -40,6 +39,7 @@ df = pd.DataFrame({
     'filename': filenames,
     'category': categories
 })
+
 
 #CONSTRUIREA MODELULUI
 model = Sequential()
@@ -111,7 +111,7 @@ train_generator = train_datagen.flow_from_dataframe(
 validation_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
 validation_generator = validation_datagen.flow_from_dataframe(
     validate_df, 
-    "./test/", 
+    "./training/", 
     x_col='filename',
     y_col='category',
     target_size=IMAGE_SIZE,
@@ -120,7 +120,7 @@ validation_generator = validation_datagen.flow_from_dataframe(
 )
 
 epochs=3 if FAST_RUN else 50
-history = model.fit_generator(
+history = model.fit(
     train_generator, 
     epochs=epochs,
     validation_data=validation_generator,
