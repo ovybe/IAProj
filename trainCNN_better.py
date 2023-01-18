@@ -1,8 +1,6 @@
 import numpy as np
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras
@@ -12,10 +10,7 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dropout, Dense, BatchNormalization
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras import layers
-import cv2, os
-from tqdm import tqdm
-from random import shuffle
-import shutil
+import os
 
 # VALORI CONSTANTE
 train_dir= "./training/"
@@ -123,9 +118,6 @@ epochs=3 if FAST_RUN else 50
 history = model.fit(
     train_generator, 
     epochs=epochs,
-    validation_data=validation_generator,
-    validation_steps=total_validate//batch_size,
-    steps_per_epoch=total_train//batch_size,
     callbacks=callbacks
 )
 

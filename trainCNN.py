@@ -1,9 +1,4 @@
-import numpy as np
-import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
@@ -11,10 +6,6 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dropout, Dense
 from tensorflow.keras import layers
-import cv2, os
-from tqdm import tqdm
-from random import shuffle
-import shutil
 
 train_dir= "./training_set/training_set/"
 test_dir= "./test_set/test_set/"
