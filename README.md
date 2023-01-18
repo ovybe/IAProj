@@ -1,2 +1,2 @@
-# IAProj
- Proiect IA Cats and Dogs classification
+# Proiect IA Cats and Dogs classification
+ https://github.com/ovybe/IAProj
